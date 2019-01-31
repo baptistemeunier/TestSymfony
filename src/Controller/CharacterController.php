@@ -17,8 +17,9 @@ class CharacterController extends AbstractController
      */
     public function index()
     {
-        // TODO
-        die();
+        return $this->render('character/index.html.twig', [
+            'characters' => $this->getDoctrine()->getRepository(Character::class)->findAll(),
+        ]);
     }
 
     /**

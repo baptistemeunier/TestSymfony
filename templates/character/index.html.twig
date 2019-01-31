@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    {% if characters | length %}
+    <h2>Liste des personnages enregistrés</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for character in characters %}
+            <tr>
+                <th scope="row">{{ character.id }}</th>
+                <td>{{ character.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="jumbotron">
+        <h1 class="display-4">Outch ...</h1>
+        <p class="lead">Aucun personnage n'a encore été ajouté sur votre cinémathèque.</p>
+        <hr class="my-4">
+        <a class="btn btn-success btn-lg" href="{{ url('character_create') }}" role="button">Cliquez ici pour y remédier</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

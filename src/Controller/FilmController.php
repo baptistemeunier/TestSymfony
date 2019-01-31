@@ -17,8 +17,9 @@ class FilmController extends AbstractController
      */
     public function index()
     {
-        // TODO
-        die();
+        return $this->render('film/index.html.twig', [
+            'films' => $this->getDoctrine()->getRepository(Film::class)->findAll(),
+        ]);
     }
 
     /**

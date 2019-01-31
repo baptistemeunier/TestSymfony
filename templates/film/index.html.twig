@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    {% if films | length %}
+    <h2>Liste des films de votre cinémathèque</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Date de sortie</th>
+                <th scope="col">Nombre de personnages</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for film in films %}
+            {% set nbCharacters = film.characters | length %}
+            <tr>
+                <th scope="row">{{ film.title }}</th>
+                <td>{{ film.date | date('d M Y') }}</td>
+                <td>{{ nbCharacters }} personnage{{ (nbCharacters > 1)?'s' }}</td>
+                <td><a href="#" class="btn btn-primary btn-sm">En savoir plus</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="jumbotron">
+        <h1 class="display-4">Outch ...</h1>
+        <p class="lead">Aucun film n'a encore été ajouté sur votre cinémathèque.</p>
+        <hr class="my-4">
+        <a class="btn btn-success btn-lg" href="{{ url('film_create') }}" role="button">Cliquez ici pour y remédier</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
