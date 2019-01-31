@@ -13,7 +13,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Cinémathèque</a>
+        <a class="navbar-brand" href="{{ url('films') }}">Cinémathèque</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,13 +21,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item {{ (app.request.get('_route') == "films" or app.request.get('_route') == "film_create") ? 'active' }}">
-                <a class="nav-link" href="{{ url('films') }}">Vos film <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url('films') }}">Vos films <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item {{ (app.request.get('_route') == "characters" or app.request.get('_route') == "character_create") ? 'active' }}">
-                <a class="nav-link" href="{{ url('characters') }}">Liste des personnes</a>
+                <a class="nav-link" href="{{ url('characters') }}">Liste des personnages</a>
             </li>
             </ul>
-            <a href="{{ url('film_create') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter un film</a>
+            <a href="{{ url('film_create') }}" class="btn btn-outline-success my-2 my-sm-0" style="margin-right:15px;" type="submit">Ajouter un film</a>
+            <a href="{{ url('character_create') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Ajouter un personnage</a>
             </form>
         </div>
         </nav>

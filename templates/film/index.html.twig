@@ -20,7 +20,7 @@
                 <th scope="row">{{ film.title }}</th>
                 <td>{{ film.date | date('d M Y') }}</td>
                 <td>{{ nbCharacters }} personnage{{ (nbCharacters > 1)?'s' }}</td>
-                <td><a href="#" class="btn btn-primary btn-sm">En savoir plus</a></td>
+                <td><a href="{{ url("film_view", { 'id': film.id }) }}" class="btn btn-primary btn-sm">En savoir plus</a></td>
             </tr>
             {% endfor %}
         </tbody>

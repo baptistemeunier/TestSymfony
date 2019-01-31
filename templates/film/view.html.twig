@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <h2>Détail de film : {{ film.title }}</h2>
+    <p> Sortie en salle le {{ film.date | date("d M y") }}</p>
+    <h4>Accroche du film</h4>
+    <p>{{ film.abstract }}</p>
+    <h4>Liste des personnages apparaissant dans ce film</h4>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for character in film.characters %}
+            <tr>
+                <th scope="row">{{ character.id }}</th>
+                <td>{{ character.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

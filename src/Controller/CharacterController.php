@@ -38,7 +38,7 @@ class CharacterController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($character);
             $em->flush();
-            return $this->redirectToRoute('films');
+            return $this->redirectToRoute('characters');
         }
 
         return $this->render('character/create.html.twig', [
